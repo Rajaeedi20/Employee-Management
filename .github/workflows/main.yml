@@ -8,7 +8,6 @@ on:
 jobs:
 
   backend-build:
-
     runs-on: ubuntu-latest
 
     defaults:
@@ -16,7 +15,6 @@ jobs:
         working-directory: Backend
 
     steps:
-
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -30,25 +28,23 @@ jobs:
         run: mvn clean package -DskipTests
 
   frontend-build:
+    runs-on: ubuntu-latest
 
-  runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Frontend/student-ui
 
-  defaults:
-    run:
-      working-directory: Frontend/student-ui
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-  steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-    - name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
 
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Build Frontend
-      run: npm run build
+      - name: Build Frontend
+        run: npm run build
