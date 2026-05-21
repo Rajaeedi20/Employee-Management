@@ -1,0 +1,20 @@
+# Backend
+Backend/target/
+Backend/.mvn/
+*.class
+*.log
+
+# Frontend
+Frontend/node_modules/
+Frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ENV
+.env
