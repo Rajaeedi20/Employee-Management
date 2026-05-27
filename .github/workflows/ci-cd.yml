@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Check Project Structure
+      - name: Show Project Structure
         run: ls -R
 
       - name: Setup Java 17
@@ -29,7 +29,7 @@ jobs:
           java-version: 17
 
       - name: Build Backend
-        working-directory: SpringBootAWS/backend
+        working-directory: backend
         run: mvn clean install
 
   frontend-build:
@@ -46,10 +46,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Frontend Dependencies
-        working-directory: SpringBootAWS/frontend
+      - name: Install Dependencies
+        working-directory: frontend
         run: npm install
 
       - name: Build Frontend
-        working-directory: SpringBootAWS/frontend
+        working-directory: frontend
         run: npm run build
