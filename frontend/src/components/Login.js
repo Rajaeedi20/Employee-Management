@@ -79,7 +79,7 @@ function Login() {
                         <div className="card-body">
 
                             <h2 className="text-center mb-4">
-                                Login
+                                Login page
                             </h2>
 
                             {
